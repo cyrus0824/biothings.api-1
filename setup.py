@@ -12,6 +12,7 @@ def read(fname):
 
 MAJOR_VERSION = 0
 MINOR_VERSION = 0
+REPO_URL = "https://github.com/SuLab/biothings.api"
 
 try:
     MICRO_VERSION = int(check_output("git rev-list --count master", shell=True).decode('utf-8').strip('\n'))
@@ -25,7 +26,7 @@ except CalledProcessError:
     commit_hash = ''
 
 f = open('biothings/.git-commit-hash', 'w')
-f.write("{}".format(commit_hash))
+f.write("{}.git\n{}".format(commit_hash))
 f.close()
 
 setup(
@@ -36,7 +37,7 @@ setup(
     description="Python package for biothings framework",
     license="BSD",
     keywords="biology annotation web service client api",
-    url="https://github.com/SuLab/biothings.api",
+    url=REPO_URL,
     packages=find_packages(),
     include_package_data=True,
     scripts=['biothings/bin/biothings-admin.py'],
