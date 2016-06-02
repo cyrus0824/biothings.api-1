@@ -3,6 +3,7 @@ from subprocess import check_output
 from io import StringIO
 from contextlib import redirect_stdout
 import pip
+import os
 
 def get_python_version():
     ''' Get a list of python packages installed and their versions. '''
