@@ -26,7 +26,7 @@ except CalledProcessError:
     commit_hash = ''
 
 f = open('biothings/.git-commit-hash', 'w')
-f.write("{}.git\n{}".format(commit_hash))
+f.write("{}.git\n{}".format(REPO_URL, commit_hash))
 f.close()
 
 setup(
