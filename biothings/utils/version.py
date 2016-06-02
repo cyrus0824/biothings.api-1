@@ -16,6 +16,16 @@ def get_python_version():
     
     return []
 
+def get_biothings_commit():
+    ''' Gets the biothings commit information. '''
+    try:
+        with open(os.path.join(os.path.dirname(biothings.__file__), '.git-commit-hash'), 'r') as f:
+            lines = f.readlines()
+    except FileNotFoundError:
+        return {'repository-url': '', 'commit-hash': ''}
+
+    return {'repository-url': lines[0].strip('\n'), 'commit-hash': lines[1].strip('\n')}
+
 def get_repository_information():
     ''' Get the repository information for the local repository. '''
     try:
