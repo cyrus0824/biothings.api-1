@@ -24,6 +24,10 @@ try:
 except CalledProcessError:
     commit_hash = ''
 
+f = open('biothings/.git-commit-hash', 'w')
+f.write("{}".format(commit_hash))
+f.close()
+
 setup(
     name="biothings",
     version="{}.{}.{}".format(MAJOR_VERSION, MINOR_VERSION, MICRO_VERSION),
@@ -54,5 +58,3 @@ setup(
         'tornado',
     ],
 )
-
-
